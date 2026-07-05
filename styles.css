@@ -340,6 +340,13 @@ img {
     z-index: 1;
 }
 
+.hero-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* Prevents play/pause interactions */
+}
+
 @keyframes zoomHero {
     0% { transform: scale(1); }
     100% { transform: scale(1.08); }
