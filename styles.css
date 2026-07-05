@@ -195,6 +195,8 @@ img {
 .logo-link-img {
     display: flex;
     align-items: center;
+    gap: 12px;
+    text-decoration: none;
 }
 
 .logo-img {
@@ -205,8 +207,37 @@ img {
     transition: var(--transition-smooth);
 }
 
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    transition: var(--transition-smooth);
+}
+
+.logo-text {
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--color-dark);
+}
+
+.logo-subtext {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.44em;
+    color: var(--color-primary);
+}
+
 .main-header.scrolled .logo-img {
     height: 42px;
+}
+
+.main-header.scrolled .logo-text {
+    font-size: 1.25rem;
+}
+
+.main-header.scrolled .logo-subtext {
+    font-size: 0.62rem;
 }
 
 /* Navigation Link Lists */
@@ -855,6 +886,11 @@ img {
 .footer-logo {
     display: flex;
     align-items: center;
+    gap: 12px;
+}
+
+.footer-logo .logo-text {
+    color: #ffffff;
 }
 
 .footer-logo-img {
