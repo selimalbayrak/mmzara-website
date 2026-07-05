@@ -987,3 +987,77 @@ img {
         text-align: center;
     }
 }
+
+/* ==========================================================================
+   RTL (Right-to-Left) Styles for Arabic Support
+   ========================================================================== */
+html[dir="rtl"] {
+    text-align: right;
+}
+
+html[dir="rtl"] body {
+    text-align: right;
+}
+
+html[dir="rtl"] .hero-content {
+    text-align: right;
+}
+
+html[dir="rtl"] .hero-actions {
+    justify-content: flex-start;
+}
+
+html[dir="rtl"] .about-features {
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+html[dir="rtl"] .about-feature-item {
+    direction: rtl;
+}
+
+html[dir="rtl"] .why-us-grid,
+html[dir="rtl"] .features-grid,
+html[dir="rtl"] .contact-grid {
+    direction: rtl;
+}
+
+html[dir="rtl"] .contact-info-column {
+    text-align: right;
+}
+
+html[dir="rtl"] .detail-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+html[dir="rtl"] .detail-icon {
+    margin-right: 0;
+    margin-left: 16px;
+}
+
+html[dir="rtl"] .social-links {
+    justify-content: flex-start;
+}
+
+html[dir="rtl"] .contact-form {
+    text-align: right;
+}
+
+html[dir="rtl"] .footer-copy {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    html[dir="rtl"] .hero-content {
+        text-align: center;
+    }
+    html[dir="rtl"] .hero-actions {
+        justify-content: center;
+    }
+    html[dir="rtl"] .footer-copy {
+        text-align: center;
+    }
+}

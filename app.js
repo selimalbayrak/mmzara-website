@@ -38,6 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
             placeholderMessage: "Type your requests or questions here...",
             formSuccess: "Your message has been sent successfully! We will contact you shortly.",
             formError: "An error occurred. Please check your information and try again."
+        },
+        ar: {
+            placeholderName: "مثال: أحمد محمد",
+            placeholderEmail: "name@company.com",
+            placeholderPhone: "+90 5xx xxx xx xx",
+            placeholderMessage: "اكتب طلباتك أو استفساراتك هنا...",
+            formSuccess: "تم إرسال رسالتك بنجاح! سنتصل بك في أقرب وقت ممكن.",
+            formError: "حدث خطأ. يرجى التحقق من معلوماتك والمحاولة مرة أخرى."
         }
     };
 
@@ -45,14 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLang = lang;
         
         // Update Active Class on Buttons
-        if (lang === 'tr') {
-            langTr.classList.add('active');
-            langEn.classList.remove('active');
-            document.documentElement.lang = 'tr';
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`lang-${lang}`);
+        if (activeBtn) activeBtn.classList.add('active');
+
+        document.documentElement.lang = lang;
+        
+        // Handle Right-to-Left (RTL) for Arabic
+        if (lang === 'ar') {
+            document.documentElement.dir = 'rtl';
         } else {
-            langEn.classList.add('active');
-            langTr.classList.remove('active');
-            document.documentElement.lang = 'en';
+            document.documentElement.dir = 'ltr';
         }
 
         // Translate elements with data-tr and data-en
@@ -92,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Language Event Listeners
     if (langTr) langTr.addEventListener('click', () => switchLanguage('tr'));
     if (langEn) langEn.addEventListener('click', () => switchLanguage('en'));
+    const langAr = document.getElementById('lang-ar');
+    if (langAr) langAr.addEventListener('click', () => switchLanguage('ar'));
 
     // ==========================================================================
     // 2. Product Category Filtering
