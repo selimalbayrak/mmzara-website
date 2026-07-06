@@ -389,21 +389,21 @@
                         <form class="contact-form" id="contact-form">
                             <div class="form-group">
                                 <label for="form-name" data-tr="Adınız Soyadınız" data-ar="الاسم الكامل" data-en="Your Name">Adınız Soyadınız</label>
-                                <input type="text" id="form-name" required placeholder="Örn. Ahmet Yılmaz">
+                                <input type="text" id="form-name" name="name" required placeholder="Örn. Ahmet Yılmaz">
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="form-email" data-tr="E-Posta Adresi" data-ar="البريد الإلكتروني" data-en="Email Address">E-Posta Adresi</label>
-                                    <input type="email" id="form-email" required placeholder="name@company.com">
+                                    <input type="email" id="form-email" name="email" required placeholder="name@company.com">
                                 </div>
                                 <div class="form-group">
                                     <label for="form-phone" data-tr="Telefon Numarası" data-ar="رقم الهاتف" data-en="Phone Number">Telefon Numarası</label>
-                                    <input type="tel" id="form-phone" placeholder="+90 5xx xxx xx xx">
+                                    <input type="tel" id="form-phone" name="phone" placeholder="+90 5xx xxx xx xx">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="form-message" data-tr="Mesajınız" data-ar="رسالتك" data-en="Your Message">Mesajınız</label>
-                                <textarea id="form-message" rows="5" required placeholder="Taleplerinizi veya sormak istediklerinizi yazınız..."></textarea>
+                                <textarea id="form-message" name="message" rows="5" required placeholder="Taleplerinizi veya sormak istediklerinizi yazınız..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block" id="form-submit">
                                 <span data-tr="Mesajı Gönder" data-ar="إرسال الرسالة" data-en="Send Message">Mesajı Gönder</span> <i class="fa-solid fa-paper-plane"></i>

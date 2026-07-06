@@ -999,17 +999,100 @@ img {
         font-size: 1.15rem;
     }
     
+    /* Mobile Header Layout Optimizations */
+    .header-container {
+        padding: 0 16px;
+    }
+    
+    .logo-img {
+        height: 38px;
+    }
+    
+    .main-header.scrolled .logo-img {
+        height: 32px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .main-header.scrolled .logo-text {
+        font-size: 0.95rem;
+    }
+    
+    .logo-subtext {
+        font-size: 0.55rem;
+        letter-spacing: 0.35em;
+    }
+    
+    .main-header.scrolled .logo-subtext {
+        font-size: 0.48rem;
+    }
+    
+    .logo-link-img {
+        gap: 8px;
+    }
+    
+    .header-actions {
+        gap: 12px;
+    }
+    
+    .lang-switcher {
+        gap: 4px;
+        font-size: 0.78rem;
+    }
+    
+    /* Mobile Section Spacing & General Fixes */
+    section {
+        padding: 60px 0;
+    }
+    
     .hero-title {
-        font-size: 2.4rem;
+        font-size: 2.1rem;
     }
     
     .hero-subtitle {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
     
     .hero-actions {
         flex-direction: column;
         gap: 12px;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+    
+    .product-filters {
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .product-img {
+        height: 240px;
+    }
+    
+    .about-img {
+        height: 280px;
     }
     
     .features-grid {
@@ -1020,10 +1103,15 @@ img {
         grid-template-columns: 1fr;
     }
     
+    .contact-form-column {
+        padding: 24px 16px;
+    }
+    
     .footer-container {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+        padding: 0 16px;
     }
     
     .footer-copy {

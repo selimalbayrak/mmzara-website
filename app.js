@@ -201,40 +201,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
-    // 5. Contact Form Submission (Mock Handler)
+    // 5. Contact Form Submission (FormSubmit.co API Integration)
     // ==========================================================================
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Show loading status
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalBtnHtml = submitBtn.innerHTML;
             
             submitBtn.disabled = true;
-            submitBtn.innerHTML = currentLang === 'tr' ? 'Gönderiliyor... <i class="fa-solid fa-spinner fa-spin"></i>' : 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>';
+            submitBtn.innerHTML = currentLang === 'tr' ? 'Gönderiliyor... <i class="fa-solid fa-spinner fa-spin"></i>' : (currentLang === 'ar' ? 'جاري الإرسال... <i class="fa-solid fa-spinner fa-spin"></i>' : 'Sending... <i class="fa-solid fa-spinner fa-spin"></i>');
             
             formStatus.className = 'form-message-status';
             formStatus.textContent = '';
 
-            // Simulate server network delay
-            setTimeout(() => {
-                // Success action
-                formStatus.classList.add('success');
-                formStatus.textContent = translations[currentLang].formSuccess;
-                
-                // Reset form fields
-                contactForm.reset();
-                
-                // Reset submit button state
+            const formData = new FormData(contactForm);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+            data['_subject'] = "MMZARA Metal Web Sitesi - Yeni Teklif/İletişim Talebi";
+            
+            fetch("https://formsubmit.co/ajax/info@mmzara.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(res => {
+                if (res.success === "true" || res.success === true) {
+                    formStatus.classList.add('success');
+                    formStatus.textContent = translations[currentLang].formSuccess;
+                    contactForm.reset();
+                } else {
+                    formStatus.classList.add('error');
+                    formStatus.textContent = translations[currentLang].formError;
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                formStatus.classList.add('error');
+                formStatus.textContent = translations[currentLang].formError;
+            })
+            .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnHtml;
-
-                // Clear success message after 5 seconds
+                
+                // Clear message after 6 seconds
                 setTimeout(() => {
                     formStatus.textContent = '';
-                }, 5000);
-            }, 1500);
+                }, 6000);
+            });
         });
     }
 
